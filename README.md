@@ -1,4 +1,4 @@
-# NLP_Chess
+# NLP-Chess
 
 Contemporary language models have achieved remarkable results in the tasks of code and text generation, displaying behavior that is often seen as intelligent, logical, and forward-thinking.
 As such, it is beneficial to explore and test the abilities of such models in the context of board games requiring strategic abilities and logical thinking to test the current limits of their abilities.
