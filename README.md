@@ -4,7 +4,7 @@ Contemporary language models have achieved remarkable results in the tasks of co
 As such, it is beneficial to explore and test the abilities of such models in the context of board games requiring strategic abilities and logical thinking to test the current limits of their abilities.
 This repository is dedicated to analyzing the current prowess of language models in the domain of game-playing, particularly within the context of chess.
 
-<b> Link to the dataset: <\b> https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing <br>
+<b> Link to the dataset: https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing <br>
 
 ## Data Explanation
 
