@@ -5,6 +5,7 @@ As such, it is beneficial to explore and test the abilities of such models in th
 This repository is dedicated to analyzing the current prowess of language models in the domain of game-playing, particularly within the context of chess.
 
 <b> Link to the dataset: </b> https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing <br>
+<b> Paper for BERT retraining: </b> https://arxiv.org/pdf/2209.11902 <br>
 
 ## Data Explanation
 
