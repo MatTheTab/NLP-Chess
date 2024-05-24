@@ -7,7 +7,7 @@ import chess.engine
 import random
 import matplotlib.pyplot as plt
 import seaborn as sns
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 
 
 def save_game_data(all_games_df: pd.DataFrame,
@@ -31,13 +31,13 @@ def save_game_data(all_games_df: pd.DataFrame,
     Returns:
     DataFrame: Updated DataFrame containing the saved game data.
     '''
-    data = {}
+    data: Dict[str, List[Any]] = {}
     for col in columns:
         data[col] = []
     board = game.board()
     j = 0
-    white_elo = game.headers['WhiteElo']
-    black_elo = game.headers['BlackElo']
+    white_elo = int(game.headers['WhiteElo'])
+    black_elo = int(game.headers['BlackElo'])
     for move in game.mainline_moves():
         j += 1
         color = board.turn
@@ -734,7 +734,7 @@ def plot_most_common_moves(temp_df: pd.DataFrame) -> None:
     values = top_common_moves.values
     names = top_common_moves.index
     plt.figure(figsize=(10, 8))
-    plt.bar(names, values, color="grey")
+    plt.bar(names, list(values), color="grey")
     plt.xlabel('Most Common Moves', fontsize=14)
     plt.ylabel('Number of Occurences', fontsize=14)
     plt.xticks(rotation=45, fontsize=12)
@@ -922,7 +922,7 @@ def plot_ELO_move_quality_3D(df: pd.DataFrame) -> None:
         marker='o')
     ax.set_xlabel('Move Quality (Depth 2)', fontsize=14)
     ax.set_ylabel('Move Quality (Depth 5)', fontsize=14)
-    ax.set_zlabel('Move Quality (Depth 10)', fontsize=14)
+    ax.set_zlabel('Move Quality (Depth 10)', fontsize=14)  # type: ignore
     plt.title('Move Quality vs Player\'s ELO', fontsize=16)
     plt.colorbar(sc, label='Player\'s ELO')
     plt.show()
@@ -956,7 +956,7 @@ def plot_ELO_position_quality_3D(df: pd.DataFrame) -> None:
         marker='o')
     ax.set_xlabel('Position Quality (Depth 2)', fontsize=14)
     ax.set_ylabel('Position Quality (Depth 5)', fontsize=14)
-    ax.set_zlabel('Position Quality (Depth 10)', fontsize=14)
+    ax.set_zlabel('Position Quality (Depth 10)', fontsize=14)  # type: ignore
     plt.title('Position Quality vs Player\'s ELO', fontsize=16)
     plt.colorbar(sc, label='Player\'s ELO')
     plt.show()
@@ -1517,18 +1517,18 @@ def plot_move_quality__random_human_3D(df: pd.DataFrame) -> None:
     move_quality_5 = list(legal_df["move_quality_5"].values)
     move_quality_10 = list(legal_df["move_quality_10"].values)
 
-    marker = list(marker.values)
+    marker_list = list(marker.values)
     colors = {'o': "blue", "^": "orange"}
     for i in range(len(legal_df)):
         ax.scatter(move_quality_2[i],
                    move_quality_5[i],
                    move_quality_10[i],
-                   marker=marker[i],
-                   color=colors[marker[i]])
+                   marker=marker_list[i],
+                   color=colors[marker_list[i]])
 
     ax.set_xlabel('Move Quality (Depth 2)', fontsize=14)
     ax.set_ylabel('Move Quality (Depth 5)', fontsize=14)
-    ax.set_zlabel('Move Quality (Depth 10)', fontsize=14)
+    ax.set_zlabel('Move Quality (Depth 10)', fontsize=14)  # type: ignore
     plt.title('Move Quality Player vs Random Moves', fontsize=16)
     plt.show()
 
@@ -1559,17 +1559,17 @@ def plot_position_quality__random_human_3D(df: pd.DataFrame) -> None:
     move_quality_5 = list(legal_df["stockfish_5"].values)
     move_quality_10 = list(legal_df["stockfish_10"].values)
 
-    marker = list(marker.values)
+    marker_list = list(marker.values)
     colors = {'o': "blue", "^": "orange"}
     for i in range(len(legal_df)):
         ax.scatter(move_quality_2[i],
                    move_quality_5[i],
                    move_quality_10[i],
-                   marker=marker[i],
-                   color=colors[marker[i]])
+                   marker=marker_list[i],
+                   color=colors[marker_list[i]])
 
     ax.set_xlabel('Position Quality (Depth 2)', fontsize=14)
     ax.set_ylabel('Position Quality (Depth 5)', fontsize=14)
-    ax.set_zlabel('Position Quality (Depth 10)', fontsize=14)
+    ax.set_zlabel('Position Quality (Depth 10)', fontsize=14)  # type: ignore
     plt.title('Position Quality Player vs Random Moves', fontsize=16)
     plt.show()
