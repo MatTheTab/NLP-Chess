@@ -1,0 +1,85 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "chessllm",
+  "dataset_size": 2100189330,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_curriculum_100k_1500-3000.parquet": {
+      "num_bytes": 26897005,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_curriculum_10k_1500-3000.parquet": {
+      "num_bytes": 2686255,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_curriculum_1M_1500-3000.parquet": {
+      "num_bytes": 326873262,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_curriculum_200k_1500-3000.parquet": {
+      "num_bytes": 65651014,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_curriculum_500k_1500-3000.parquet": {
+      "num_bytes": 163544761,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_random_100k_1500-3000.parquet": {
+      "num_bytes": 27329930,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_random_10k_1500-3000.parquet": {
+      "num_bytes": 2749512,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_random_1M_1500-3000.parquet": {
+      "num_bytes": 331228363,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_random_200k_1500-3000.parquet": {
+      "num_bytes": 66080891,
+      "checksum": null
+    },
+    "hf://datasets/mlabonne/chessllm@3841467b8a6b528d897956b577e1c579816d6c7f/lichess_random_500k_1500-3000.parquet": {
+      "num_bytes": 165610202,
+      "checksum": null
+    }
+  },
+  "download_size": 1178651195,
+  "features": {
+    "average_elo": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "transcript": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 3278840525,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 2100189330,
+      "num_examples": 3620000,
+      "shard_lengths": [
+        891000,
+        841000,
+        870000,
+        850000,
+        168000
+      ],
+      "dataset_name": "chessllm"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
