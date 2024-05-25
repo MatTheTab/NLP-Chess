@@ -367,7 +367,7 @@ def calculate_performance(df: pd.DataFrame) -> None:
 
     '''
     human_df = df.loc[df['real']]
-    random_df = df.loc[not df['real']]
+    random_df = df.loc[~df['real']]
     human_average2 = human_df["stockfish_2"].mean()
     random_average2 = random_df["stockfish_2"].mean()
     human_average5 = human_df["stockfish_5"].mean()
@@ -445,7 +445,7 @@ def get_position_quality_histogram(df: pd.DataFrame) -> None:
 
     '''
     human_df = df.loc[df['real']]
-    random_df = df.loc[not df['real']]
+    random_df = df.loc[~df['real']]
     human_average2 = human_df["stockfish_2"].mean()
     random_average2 = random_df["stockfish_2"].mean()
     human_average5 = human_df["stockfish_5"].mean()
@@ -491,7 +491,7 @@ def get_move_quality_histogram(df: pd.DataFrame) -> None:
 
     '''
     human_df = df.loc[df['real']]
-    random_df = df.loc[not df['real']]
+    random_df = df.loc[~df['real']]
     human_average2 = human_df["move_quality_2"].mean()
     random_average2 = random_df["move_quality_2"].mean()
     human_average5 = human_df["move_quality_5"].mean()
@@ -673,7 +673,7 @@ def plot_real_fake(df: pd.DataFrame) -> None:
 
     '''
     real_moves = df.loc[df["real"]]
-    fake_moves = df.loc[not df["real"]]
+    fake_moves = df.loc[~df["real"]]
     values = [len(real_moves), len(fake_moves)]
     names = ["Real Moves", "Random Moves"]
     plt.figure(figsize=(4, 6))
@@ -701,7 +701,7 @@ def plot_legal_illegal(df: pd.DataFrame) -> None:
 
     '''
     legal_moves = df.loc[df["legal"]]
-    illegal_moves = df.loc[not df["legal"]]
+    illegal_moves = df.loc[~df["legal"]]
     values = [len(illegal_moves), len(legal_moves)]
     names = ["Illegal Moves", "Legal Moves"]
     plt.figure(figsize=(4, 6))
@@ -1506,7 +1506,7 @@ def plot_move_quality__random_human_3D(df: pd.DataFrame) -> None:
     '''
     legal_df = df.loc[df["legal"]]
     real_legal_df = legal_df.loc[legal_df["real"]]
-    fake_legal_df = legal_df.loc[not legal_df["real"]]
+    fake_legal_df = legal_df.loc[~legal_df["real"]]
     real_legal_df = real_legal_df.sample(n=2000, random_state=42)
     fake_legal_df = fake_legal_df.sample(n=2000, random_state=42)
     legal_df = pd.concat([real_legal_df, fake_legal_df], axis=0)
@@ -1548,7 +1548,7 @@ def plot_position_quality__random_human_3D(df: pd.DataFrame) -> None:
     '''
     legal_df = df.loc[df["legal"]]
     real_legal_df = legal_df.loc[legal_df["real"]]
-    fake_legal_df = legal_df.loc[not legal_df["real"]]
+    fake_legal_df = legal_df.loc[~legal_df["real"]]
     real_legal_df = real_legal_df.sample(n=2000, random_state=42)
     fake_legal_df = fake_legal_df.sample(n=2000, random_state=42)
     legal_df = pd.concat([real_legal_df, fake_legal_df], axis=0)
