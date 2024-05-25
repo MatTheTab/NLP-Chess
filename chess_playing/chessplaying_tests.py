@@ -38,7 +38,7 @@ class TestChessPlaying:
         are validated.
         """
         data_moves = load_from_disk(self.data_path)
-        moves = get_n_moves(data_moves["transcript"][0], 5)
+        moves = get_n_moves(data_moves["transcript"][0], 5)  # type: ignore
 
         assert moves is not None, \
             "Moves should be returned correctly for this game"
@@ -50,7 +50,8 @@ class TestChessPlaying:
 
         board = chess.Board()
         for move in game:
-            assert move in get_san_legal_moves(board), "Move should be legal"
+            t = "Move should be legal"
+            assert move in get_san_legal_moves(board), t  # type: ignore
             board.push_san(move)
 
     def test_get_state(self) -> None:
@@ -60,10 +61,11 @@ class TestChessPlaying:
         correctly retrieved and that the moves are legal and correctly
         applied to the board.
         """
-        data_moves = load_from_disk(self.data_path)
+        data_moves = load_from_disk(self.data_path)  # type: ignore
 
         board, moves, p_move = \
-            get_state_after_moves(data_moves["transcript"][0], 5)
+            get_state_after_moves(  # type: ignore
+                data_moves["transcript"][0], 5)
 
         assert moves is not None, \
             "Moves should be returned correctly for this game"
@@ -78,8 +80,9 @@ class TestChessPlaying:
             "5 moves should be performed and stored in board move stack"
         assert len(game) == len(board.move_stack), \
             "The same number of moves should be played and in the move string"
-        assert p_move in get_san_legal_moves(board), \
-            "Next player move should be legal"
+
+        t = "Next player move should be legal"
+        assert p_move in get_san_legal_moves(board), t  # type: ignore
 
     def test_generation(self) -> None:
         """
@@ -89,7 +92,8 @@ class TestChessPlaying:
         """
         data_moves = load_from_disk(self.data_path)
 
-        _, moves, _ = get_state_after_moves(data_moves["transcript"][0], 5)
+        _, moves, _ = get_state_after_moves(  # type: ignore
+            data_moves["transcript"][0], 5)
 
         assert moves is not None, \
             "Moves should be returned correctly for this game"
@@ -99,7 +103,8 @@ class TestChessPlaying:
         generator("Once upon a time,", max_length=40, truncation=True,
                   pad_token_id=generator.tokenizer.eos_token_id)
 
-        answer = generate_next_moves(moves, generator, tokenizer, 20, 1)
+        answer = generate_next_moves(  # type: ignore
+            moves, generator, tokenizer, 20, 1)
 
         assert len(answer) == 1, \
             "One answer should be produced by the model"
@@ -157,7 +162,7 @@ class TestChessPlaying:
 
         alternatives = ["dog"]
 
-        answer = generate_answer(
+        answer = generate_answer(  # type: ignore
             forced_generator,
             "What is your favorite animal? A:",
             max_len=25,

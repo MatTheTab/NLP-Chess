@@ -37,6 +37,10 @@ NLP-CHESS
 └── mypy.ini - mypy config file
 ```
 
+## Testing Flake8, Mypy
+Please use the [nbqa](https://pypi.org/project/nbqa/0.1.19/) library to run flake8 or mypy on notebooks. Run the tests from the root of repository.<br>
+```nbqa flake8 .\chess_playing\evaluate_chessgpt_on_gpt2.ipynb```<br>
+```nbqa mypy .\chess_playing\evaluate_chessgpt_on_gpt2.ipynb```
 
 ## Data Explanation
 
