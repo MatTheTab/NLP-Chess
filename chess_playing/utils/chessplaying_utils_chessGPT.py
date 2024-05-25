@@ -924,5 +924,3 @@ def show_results_single_eval(summaries: Dict[int,
         f'{aggregate_summary_player["agg_above_average"]} / '
         f'{n_moves_player}'
     )
-
-
