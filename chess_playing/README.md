@@ -2,6 +2,8 @@
 
 ## Contents
 This directory includes notebooks and utilities used for evaluating language model chess playing capabilities.
+Please note, evaluate_gpt_2.ipynb can be run locally using packages located in requirements.txt, however
+the remaining projects are best run on google colab.
 
 ## How to Run
 
