@@ -4,8 +4,39 @@ Contemporary language models have achieved remarkable results in the tasks of co
 As such, it is beneficial to explore and test the abilities of such models in the context of board games requiring strategic abilities and logical thinking to test the current limits of their abilities.
 This repository is dedicated to analyzing the current prowess of language models in the domain of game-playing, particularly within the context of chess.
 
-<b> Link to the dataset: </b> https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing <br>
+<b> Links to the datasets: </b> 
+- https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing 
+- https://huggingface.co/datasets/mlabonne/chessllm 
+
 <b> Paper for BERT retraining: </b> https://arxiv.org/pdf/2209.11902 <br>
+
+## Repository structure
+Each folder contains a separate README.md file with more information
+
+```
+NLP-CHESS
+├── BERT_move_legality_classification
+│   └── BERT_Move_Classification.ipynb - fine-tuning BERT for classifying legal moves
+├── chess_opening_recognition
+│   └── evaluate_chessgpt.ipynb - opening prediction using chessGPT model
+├── chess_playing
+│   ├── data - stores a subset of games from https://huggingface.co/datasets/mlabonne/chessllm
+│   ├── utils
+│   │   └── chessplaying_utils.py - functions used for language model chess playing evaluation
+│   ├── chessplaying_tests.py - pytest tests of selected functionality used in evaluation
+│   ├── evaluate_gpt2.ipynb - evaluation of gpt-2 chess playing
+│   ├── evaluate_gpt2-large.ipynb - copy of evaluate_gpt2.ipynb notebook but for gpt-2 large model
+│   ├── chessGPT_gpt_comparison.ipynb - notebook with some results of chessGPT chess playing evaluation
+│   └── evaluate_chessgpt_on_gpt2.ipynb - evaluation of chessGPT chess playing
+├── data_analysis
+│   ├── utils
+│   │   └── utils.py - utility functions used for data analysis
+│   ├── data_reading.ipynb - showcase of how to read pgn data
+│   └── EDA.ipynb - exploration of the main dataset
+├── .flake8 - flake8 config file
+└── mypy.ini - mypy config file
+```
+
 
 ## Data Explanation
 
