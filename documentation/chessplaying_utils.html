@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module chessplaying_utils</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>chessplaying_utils</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cnlp_chess%5Crepo%5Cnlp-chess%5Cchess_playing%5Cutils%5Cchessplaying_utils.py">d:\nlp_chess\repo\nlp-chess\chess_playing\utils\chessplaying_utils.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="chess.html">chess</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-ceil"><strong>ceil</strong></a>(x, /)</dt><dd><tt>Return&nbsp;the&nbsp;ceiling&nbsp;of&nbsp;x&nbsp;as&nbsp;an&nbsp;Integral.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;smallest&nbsp;integer&nbsp;&gt;=&nbsp;x.</tt></dd></dl>
+ <dl><dt><a name="-eval_single_position_bot"><strong>eval_single_position_bot</strong></a>(board: chess.Board, moves: str, move_stats: Dict[str, Any], engine: chess.engine.SimpleEngine, generator: transformers.pipelines.text_generation.TextGenerationPipeline, tokenizer: transformers.models.auto.tokenization_auto.AutoTokenizer, num_answers: int = 100, verbose: bool = False) -&gt; Dict[str, Any]</dt><dd><tt>Evaluates&nbsp;multiple&nbsp;answers&nbsp;for&nbsp;a&nbsp;single&nbsp;position&nbsp;using&nbsp;the&nbsp;GPT-2&nbsp;model.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board<br>
+generated&nbsp;with&nbsp;<a href="#-get_state_after_moves">get_state_after_moves</a>().<br>
+-&nbsp;moves&nbsp;(str):&nbsp;Corresponding&nbsp;moves&nbsp;generated&nbsp;with&nbsp;<a href="#-get_state_after_moves">get_state_after_moves</a>().<br>
+-&nbsp;move_stats&nbsp;(Dict[str,&nbsp;Any]):&nbsp;chess&nbsp;engine&nbsp;(Stockfish)&nbsp;move&nbsp;evaluations<br>
+created&nbsp;with&nbsp;<a href="#-get_legal_move_evaluations">get_legal_move_evaluations</a>().<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;chess&nbsp;engine&nbsp;(Stockfish).<br>
+-&nbsp;generator&nbsp;(TextGenerationPipeline):&nbsp;The&nbsp;GPT-2&nbsp;text&nbsp;generation&nbsp;pipeline.<br>
+-&nbsp;tokenizer&nbsp;(AutoTokenizer):&nbsp;Tokenizer&nbsp;for&nbsp;the&nbsp;GPT-2&nbsp;model.<br>
+-&nbsp;num_answers&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;evaluated&nbsp;answers.&nbsp;Default&nbsp;is&nbsp;100.<br>
+-&nbsp;verbose&nbsp;(bool):&nbsp;Print&nbsp;evaluation&nbsp;info.&nbsp;Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Dict[str,&nbsp;Any]:&nbsp;Performance&nbsp;statistics&nbsp;including&nbsp;the&nbsp;number&nbsp;of&nbsp;illegal<br>
+moves,&nbsp;legal&nbsp;moves,&nbsp;above-average&nbsp;moves,&nbsp;worst&nbsp;moves,&nbsp;best&nbsp;moves,&nbsp;and&nbsp;score<br>
+differences.</tt></dd></dl>
+ <dl><dt><a name="-eval_single_position_random"><strong>eval_single_position_random</strong></a>(board: chess.Board, move_stats: Dict[str, Any], engine: chess.engine.SimpleEngine, num_answers: int = 100, verbose: bool = False) -&gt; Dict[str, Any]</dt><dd><tt>Evaluates&nbsp;multiple&nbsp;answers&nbsp;for&nbsp;a&nbsp;single&nbsp;position&nbsp;using&nbsp;a&nbsp;random&nbsp;player.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess<br>
+board&nbsp;generated&nbsp;with&nbsp;<a href="#-get_state_after_moves">get_state_after_moves</a>().<br>
+-&nbsp;move_stats&nbsp;(Dict[str,&nbsp;Any]):&nbsp;chess&nbsp;engine&nbsp;(Stockfish)&nbsp;move&nbsp;evaluations<br>
+created&nbsp;with&nbsp;<a href="#-get_legal_move_evaluations">get_legal_move_evaluations</a>().<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;chess&nbsp;engine&nbsp;(Stockfish).<br>
+-&nbsp;num_answers&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;evaluated&nbsp;answers.&nbsp;Default&nbsp;is&nbsp;100.<br>
+-&nbsp;verbose&nbsp;(bool):&nbsp;Print&nbsp;evaluation&nbsp;info.&nbsp;Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Dict[str,&nbsp;Any]:&nbsp;Performance&nbsp;statistics&nbsp;including&nbsp;the&nbsp;number&nbsp;of<br>
+above-average&nbsp;moves,&nbsp;worst&nbsp;moves,&nbsp;best&nbsp;moves,&nbsp;and&nbsp;score&nbsp;differences.</tt></dd></dl>
+ <dl><dt><a name="-generate_answer"><strong>generate_answer</strong></a>(generator: transformers.pipelines.text_generation.TextGenerationPipeline, prompt: str, max_len: int = 40, num_answers: int = 1, alternatives: Optional[List[str]] = None) -&gt; List[str]</dt><dd><tt>Generate&nbsp;a&nbsp;text&nbsp;answer&nbsp;using&nbsp;the&nbsp;provided&nbsp;generator.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;generator&nbsp;(TextGenerationPipeline):&nbsp;The&nbsp;text&nbsp;generation&nbsp;model.<br>
+-&nbsp;prompt&nbsp;(str):&nbsp;The&nbsp;prompt&nbsp;to&nbsp;generate&nbsp;text&nbsp;from.<br>
+-&nbsp;max_len&nbsp;(int):&nbsp;Maximum&nbsp;length&nbsp;of&nbsp;the&nbsp;generated&nbsp;text.&nbsp;Default&nbsp;is&nbsp;40.<br>
+-&nbsp;num_answers&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;answers&nbsp;to&nbsp;generate.&nbsp;Default&nbsp;is&nbsp;1.<br>
+-&nbsp;alternatives&nbsp;(Optional[List[str]]):&nbsp;List&nbsp;of&nbsp;alternative&nbsp;words&nbsp;to<br>
+force&nbsp;in&nbsp;the&nbsp;generation.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;List[str]:&nbsp;The&nbsp;generated&nbsp;text&nbsp;answers.</tt></dd></dl>
+ <dl><dt><a name="-generate_next_moves"><strong>generate_next_moves</strong></a>(moves: str, generator: transformers.pipelines.text_generation.TextGenerationPipeline, tokenizer: transformers.models.auto.tokenization_auto.AutoTokenizer, answer_length: int = 20, num_answers: int = 1, alternatives: Optional[List[str]] = None) -&gt; List[str]</dt><dd><tt>Generate&nbsp;the&nbsp;next&nbsp;moves&nbsp;in&nbsp;the&nbsp;chess&nbsp;game&nbsp;using&nbsp;a&nbsp;text&nbsp;generation&nbsp;model.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;moves&nbsp;(str):&nbsp;The&nbsp;current&nbsp;moves&nbsp;in&nbsp;the&nbsp;chess&nbsp;game.<br>
+-&nbsp;generator&nbsp;(TextGenerationPipeline):&nbsp;The&nbsp;text&nbsp;generation&nbsp;model.<br>
+-&nbsp;tokenizer&nbsp;(AutoTokenizer):&nbsp;The&nbsp;tokenizer&nbsp;for&nbsp;the&nbsp;model.<br>
+-&nbsp;answer_length&nbsp;(int):&nbsp;Length&nbsp;of&nbsp;the&nbsp;answer&nbsp;to&nbsp;generate.&nbsp;Default&nbsp;is&nbsp;20.<br>
+-&nbsp;num_answers&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;answers&nbsp;to&nbsp;generate.&nbsp;Default&nbsp;is&nbsp;1.<br>
+-&nbsp;alternatives&nbsp;(Optional[List[str]]):&nbsp;List&nbsp;of&nbsp;alternative&nbsp;words&nbsp;to&nbsp;force<br>
+in&nbsp;the&nbsp;generation.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;List[str]:&nbsp;The&nbsp;generated&nbsp;next&nbsp;moves&nbsp;in&nbsp;the&nbsp;game.</tt></dd></dl>
+ <dl><dt><a name="-get_color"><strong>get_color</strong></a>(board_turn: bool) -&gt; str</dt><dd><tt>Get&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;current&nbsp;player.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board_turn&nbsp;(bool):&nbsp;Boolean&nbsp;indicating&nbsp;the&nbsp;current&nbsp;player.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;str:&nbsp;"WHITE"&nbsp;if&nbsp;the&nbsp;current&nbsp;player&nbsp;is&nbsp;white,&nbsp;else&nbsp;"BLACK".</tt></dd></dl>
+ <dl><dt><a name="-get_legal_move_evaluations"><strong>get_legal_move_evaluations</strong></a>(board: chess.Board, engine: chess.engine.SimpleEngine, plot_evaluations: bool = False) -&gt; Optional[Dict[str, Any]]</dt><dd><tt>Evaluate&nbsp;all&nbsp;legal&nbsp;moves&nbsp;from&nbsp;the&nbsp;current&nbsp;board&nbsp;state.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;The&nbsp;chess&nbsp;engine&nbsp;for&nbsp;evaluation.<br>
+-&nbsp;plot_evaluations&nbsp;(bool):&nbsp;Whether&nbsp;to&nbsp;plot&nbsp;the&nbsp;evaluations.<br>
+Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Optional[Dict[str,&nbsp;Any]]:&nbsp;Dictionary&nbsp;containing&nbsp;evaluation<br>
+results&nbsp;of&nbsp;the&nbsp;moves.</tt></dd></dl>
+ <dl><dt><a name="-get_n_moves"><strong>get_n_moves</strong></a>(game_transcript: str, n: int = 10) -&gt; Optional[str]</dt><dd><tt>Get&nbsp;the&nbsp;first&nbsp;n&nbsp;moves&nbsp;from&nbsp;the&nbsp;game&nbsp;transcript.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;game_transcript&nbsp;(str):&nbsp;The&nbsp;transcript&nbsp;of&nbsp;the&nbsp;chess&nbsp;game.<br>
+-&nbsp;n&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;moves&nbsp;to&nbsp;extract.&nbsp;Default&nbsp;is&nbsp;10.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Optional[str]:&nbsp;The&nbsp;first&nbsp;n&nbsp;moves&nbsp;from&nbsp;the&nbsp;transcript&nbsp;or&nbsp;None&nbsp;if<br>
+index&nbsp;out&nbsp;of&nbsp;range.</tt></dd></dl>
+ <dl><dt><a name="-get_san_legal_moves"><strong>get_san_legal_moves</strong></a>(board: chess.Board) -&gt; List[str]</dt><dd><tt>Get&nbsp;all&nbsp;legal&nbsp;moves&nbsp;from&nbsp;the&nbsp;board&nbsp;in&nbsp;SAN&nbsp;format.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;List[str]:&nbsp;List&nbsp;of&nbsp;legal&nbsp;moves&nbsp;in&nbsp;SAN&nbsp;format.</tt></dd></dl>
+ <dl><dt><a name="-get_state_after_moves"><strong>get_state_after_moves</strong></a>(game_transcript: str, n: int = 10) -&gt; Tuple[Optional[chess.Board], Optional[str], Optional[str]]</dt><dd><tt>Get&nbsp;the&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board&nbsp;after&nbsp;n&nbsp;moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;game_transcript&nbsp;(str):&nbsp;The&nbsp;transcript&nbsp;of&nbsp;the&nbsp;chess&nbsp;game.<br>
+-&nbsp;n&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;moves&nbsp;to&nbsp;play&nbsp;out.&nbsp;Default&nbsp;is&nbsp;10.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Tuple[Optional[chess.Board],&nbsp;Optional[str],&nbsp;Optional[str]]:<br>
+The&nbsp;chess&nbsp;board,&nbsp;game&nbsp;string,&nbsp;and&nbsp;player's&nbsp;next&nbsp;move&nbsp;or&nbsp;None&nbsp;in<br>
+case&nbsp;the&nbsp;game&nbsp;is&nbsp;finished.&nbsp;Returns&nbsp;None,&nbsp;None,&nbsp;None&nbsp;in&nbsp;case&nbsp;of<br>
+invalid&nbsp;game&nbsp;string&nbsp;or&nbsp;if&nbsp;the&nbsp;game&nbsp;is&nbsp;too&nbsp;short.</tt></dd></dl>
+ <dl><dt><a name="-plot_results_hist"><strong>plot_results_hist</strong></a>(scores: List[float], min_score: float, max_score: float, title: str = '') -&gt; None</dt><dd><tt>Plot&nbsp;a&nbsp;histogram&nbsp;of&nbsp;score&nbsp;differences.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;scores&nbsp;(List[float]):&nbsp;List&nbsp;of&nbsp;score&nbsp;differences.<br>
+-&nbsp;min_score&nbsp;(float):&nbsp;Minimum&nbsp;score&nbsp;for&nbsp;histogram&nbsp;bins.<br>
+-&nbsp;max_score&nbsp;(float):&nbsp;Maximum&nbsp;score&nbsp;for&nbsp;histogram&nbsp;bins.<br>
+-&nbsp;title&nbsp;(str):&nbsp;Title&nbsp;of&nbsp;the&nbsp;histogram.&nbsp;Default&nbsp;is&nbsp;an&nbsp;empty&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-run_legal_forced_test"><strong>run_legal_forced_test</strong></a>(transcripts: List[str], num_moves: List[int], engine: chess.engine.SimpleEngine, generator: transformers.pipelines.text_generation.TextGenerationPipeline, forced_generator: transformers.pipelines.text_generation.TextGenerationPipeline, verbose: bool = False) -&gt; Dict[int, Dict[str, Dict[str, Any]]]</dt><dd><tt>Runs&nbsp;tests&nbsp;for&nbsp;legal&nbsp;forced&nbsp;alternatives&nbsp;using&nbsp;GPT-2<br>
+models&nbsp;and&nbsp;random&nbsp;player.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;transcripts&nbsp;(List[str]):&nbsp;List&nbsp;of&nbsp;game&nbsp;transcripts.<br>
+-&nbsp;num_moves&nbsp;(List[int]):&nbsp;List&nbsp;of&nbsp;numbers&nbsp;of&nbsp;moves&nbsp;to&nbsp;test.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;chess&nbsp;engine&nbsp;(Stockfish).<br>
+-&nbsp;generator&nbsp;(TextGenerationPipeline):&nbsp;GPT-2&nbsp;text&nbsp;generation&nbsp;pipeline.<br>
+-&nbsp;forced_generator&nbsp;(TextGenerationPipeline):&nbsp;GPT-2&nbsp;text&nbsp;generation<br>
+pipeline&nbsp;for&nbsp;forced&nbsp;alternatives.<br>
+-&nbsp;verbose&nbsp;(bool):&nbsp;Print&nbsp;verbose&nbsp;information.&nbsp;Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Dict[int,&nbsp;Dict[str,&nbsp;Dict[str,&nbsp;Any]]]:&nbsp;Summary&nbsp;of&nbsp;test&nbsp;results.</tt></dd></dl>
+ <dl><dt><a name="-run_single_game_eval"><strong>run_single_game_eval</strong></a>(transcripts: List[str], num_moves: int, num_answers: int, engine: chess.engine.SimpleEngine, generator: transformers.pipelines.text_generation.TextGenerationPipeline, tokenizer: transformers.models.auto.tokenization_auto.AutoTokenizer, print_conclusions: bool = False, show_plots: bool = False) -&gt; Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]</dt><dd><tt>Runs&nbsp;a&nbsp;test&nbsp;for&nbsp;single&nbsp;game&nbsp;move&nbsp;analysis.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;transcripts&nbsp;(List[str]):&nbsp;Transcripts&nbsp;of&nbsp;games&nbsp;to&nbsp;be&nbsp;used.<br>
+-&nbsp;num_moves&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;moves&nbsp;from&nbsp;the&nbsp;games&nbsp;to&nbsp;be<br>
+played&nbsp;before&nbsp;evaluation&nbsp;move.<br>
+-&nbsp;num_answers&nbsp;(int):&nbsp;Number&nbsp;of&nbsp;model&nbsp;answers&nbsp;generated.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;chess&nbsp;engine&nbsp;(Stockfish).<br>
+-&nbsp;generator&nbsp;(TextGenerationPipeline):&nbsp;Pipeline&nbsp;generator.<br>
+-&nbsp;tokenizer&nbsp;(AutoTokenizer):&nbsp;Model's&nbsp;tokenizer.<br>
+-&nbsp;print_conclusions&nbsp;(bool):&nbsp;Display&nbsp;conclusions.&nbsp;Default&nbsp;is&nbsp;False.<br>
+-&nbsp;show_plots&nbsp;(bool):&nbsp;Display&nbsp;plots.&nbsp;Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;Tuple[Dict[str,&nbsp;Any],&nbsp;Dict[str,&nbsp;Any],&nbsp;Dict[str,&nbsp;Any]:&nbsp;Performance<br>
+statistics&nbsp;for&nbsp;GPT-2,&nbsp;random,&nbsp;and&nbsp;player&nbsp;moves&nbsp;including&nbsp;the&nbsp;number<br>
+of&nbsp;best&nbsp;moves,&nbsp;worst&nbsp;moves,&nbsp;above-average&nbsp;moves,&nbsp;and&nbsp;score&nbsp;differences.</tt></dd></dl>
+ <dl><dt><a name="-show_board"><strong>show_board</strong></a>(board: chess.Board, size: int = 400) -&gt; None</dt><dd><tt>Display&nbsp;the&nbsp;chess&nbsp;board.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+-&nbsp;size&nbsp;(int):&nbsp;Size&nbsp;of&nbsp;the&nbsp;chess&nbsp;board&nbsp;for&nbsp;display.&nbsp;Default&nbsp;is&nbsp;400.</tt></dd></dl>
+ <dl><dt><a name="-show_results_forced_test"><strong>show_results_forced_test</strong></a>(summaries: Dict[int, Dict[str, Dict[str, Any]]], tests_num_moves: List[int], plot_hist: bool = True) -&gt; None</dt><dd><tt>Displays&nbsp;results&nbsp;of&nbsp;legal&nbsp;forced&nbsp;alternative&nbsp;tests.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;summaries&nbsp;(Dict[int,&nbsp;Dict[str,&nbsp;Dict[str,&nbsp;Dict[str,&nbsp;Any]]]):<br>
+Summary&nbsp;of&nbsp;test&nbsp;results.<br>
+-&nbsp;tests_num_moves&nbsp;(List[int]):&nbsp;List&nbsp;of&nbsp;numbers&nbsp;of&nbsp;moves&nbsp;to&nbsp;test.<br>
+-&nbsp;plot_hist&nbsp;(bool):&nbsp;Plot&nbsp;histograms&nbsp;of&nbsp;score&nbsp;differences.&nbsp;Default&nbsp;is&nbsp;True.<br>
+&nbsp;<br>
+Returns:<br>
+-&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-show_results_single_eval"><strong>show_results_single_eval</strong></a>(summaries: Dict[int, Dict[str, Dict[str, Any]]], tests_num_moves: List[int], plot_hist: bool = True) -&gt; None</dt><dd><tt>Displays&nbsp;the&nbsp;results&nbsp;of&nbsp;single-game&nbsp;evaluation.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;summaries&nbsp;(Dict[int,&nbsp;Dict[str,&nbsp;Dict[str,&nbsp;Any]]]):&nbsp;Summarized&nbsp;results&nbsp;from<br>
+single-game&nbsp;evaluation.<br>
+-&nbsp;tests_num_moves&nbsp;(List[int]):&nbsp;List&nbsp;of&nbsp;numbers&nbsp;of&nbsp;moves.<br>
+-&nbsp;plot_hist&nbsp;(bool):&nbsp;Whether&nbsp;to&nbsp;plot&nbsp;histograms.&nbsp;Default&nbsp;is&nbsp;True.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Any</strong> = typing.Any<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>List</strong> = typing.List<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>
