@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module utils</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>utils</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Cnlp_chess%5Crepo%5Cnlp-chess%5Cdata_analysis%5Cutils%5Cutils.py">d:\nlp_chess\repo\nlp-chess\data_analysis\utils\utils.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="chess.html">chess</a><br>
+<a href="io.html">io</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="seaborn.html">seaborn</a><br>
+<a href="zstandard.html">zstandard</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-calculate_performance"><strong>calculate_performance</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Calculate&nbsp;and&nbsp;print&nbsp;performance&nbsp;metrics&nbsp;for&nbsp;human&nbsp;moves&nbsp;and&nbsp;random&nbsp;moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-get_human_move"><strong>get_human_move</strong></a>(data: Dict[str, list], board: chess.Board, move: chess.Move, game_number: int, j: int, engine: chess.engine.SimpleEngine, color: bool, time_limit: float, white_elo: int, black_elo: int) -&gt; Tuple[Dict[str, list], chess.Board]</dt><dd><tt>Get&nbsp;human&nbsp;player's&nbsp;move&nbsp;and&nbsp;update&nbsp;the&nbsp;data.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;data&nbsp;(dict):&nbsp;Dictionary&nbsp;containing&nbsp;game&nbsp;data.<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+-&nbsp;move&nbsp;(chess.Move):&nbsp;The&nbsp;move&nbsp;made&nbsp;by&nbsp;the&nbsp;human&nbsp;player.<br>
+-&nbsp;game_number&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;game.<br>
+-&nbsp;j&nbsp;(int):&nbsp;The&nbsp;move&nbsp;number.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;The&nbsp;chess&nbsp;engine&nbsp;used&nbsp;for&nbsp;analysis.<br>
+-&nbsp;color&nbsp;(bool):&nbsp;The&nbsp;color&nbsp;of&nbsp;the&nbsp;player&nbsp;making&nbsp;the&nbsp;move.<br>
+-&nbsp;time_limit&nbsp;(float):&nbsp;Time&nbsp;limit&nbsp;for&nbsp;engine&nbsp;analysis&nbsp;in&nbsp;seconds.<br>
+-&nbsp;white_elo&nbsp;(int):&nbsp;White&nbsp;player's&nbsp;Elo&nbsp;rating.<br>
+-&nbsp;black_elo&nbsp;(int):&nbsp;Black&nbsp;player's&nbsp;Elo&nbsp;rating.<br>
+&nbsp;<br>
+Returns:<br>
+tuple:&nbsp;Updated&nbsp;data&nbsp;dictionary&nbsp;and&nbsp;board&nbsp;state.</tt></dd></dl>
+ <dl><dt><a name="-get_move_quality_histogram"><strong>get_move_quality_histogram</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Generate&nbsp;and&nbsp;display&nbsp;a&nbsp;bar&nbsp;chart&nbsp;showing<br>
+the&nbsp;average&nbsp;Stockfish&nbsp;scores&nbsp;for&nbsp;different<br>
+moves&nbsp;for&nbsp;human&nbsp;and&nbsp;random&nbsp;players.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-get_position_quality_histogram"><strong>get_position_quality_histogram</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Generate&nbsp;and&nbsp;display&nbsp;a&nbsp;bar&nbsp;chart&nbsp;showing&nbsp;the&nbsp;average<br>
+Stockfish&nbsp;scores&nbsp;for&nbsp;different&nbsp;positions&nbsp;for&nbsp;human&nbsp;and&nbsp;random&nbsp;players.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-get_pseudolegal_moves"><strong>get_pseudolegal_moves</strong></a>(board: chess.Board) -&gt; List[chess.Move]</dt><dd><tt>Ger&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;possible&nbsp;pseudolegal<br>
+moves&nbsp;for&nbsp;the&nbsp;current&nbsp;board&nbsp;position.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+&nbsp;<br>
+Returns:<br>
+list:&nbsp;List&nbsp;of&nbsp;all&nbsp;possible&nbsp;pseudolegal&nbsp;moves.</tt></dd></dl>
+ <dl><dt><a name="-get_random_move"><strong>get_random_move</strong></a>(data: Dict[str, list], board: chess.Board, game_number: int, j: int, engine: chess.engine.SimpleEngine, color: bool, time_limit: float, white_elo: int, black_elo: int) -&gt; Tuple[Dict[str, list], chess.Board]</dt><dd><tt>Get&nbsp;a&nbsp;random&nbsp;move&nbsp;and&nbsp;update&nbsp;the&nbsp;data.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;data&nbsp;(dict):&nbsp;Dictionary&nbsp;containing&nbsp;game&nbsp;data.<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+-&nbsp;game_number&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;game.<br>
+-&nbsp;j&nbsp;(int):&nbsp;The&nbsp;move&nbsp;number.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;The&nbsp;chess&nbsp;engine&nbsp;used&nbsp;for&nbsp;analysis.<br>
+-&nbsp;color&nbsp;(bool):&nbsp;The&nbsp;color&nbsp;of&nbsp;the&nbsp;player&nbsp;making&nbsp;the&nbsp;move.<br>
+-&nbsp;time_limit&nbsp;(float):&nbsp;Time&nbsp;limit&nbsp;for&nbsp;engine&nbsp;analysis&nbsp;in&nbsp;seconds.<br>
+-&nbsp;white_elo&nbsp;(int):&nbsp;White&nbsp;player's&nbsp;Elo&nbsp;rating.<br>
+-&nbsp;black_elo&nbsp;(int):&nbsp;Black&nbsp;player's&nbsp;Elo&nbsp;rating.<br>
+&nbsp;<br>
+Returns:<br>
+tuple:&nbsp;Updated&nbsp;data&nbsp;dictionary&nbsp;and&nbsp;board&nbsp;state.</tt></dd></dl>
+ <dl><dt><a name="-get_stockfish_scores"><strong>get_stockfish_scores</strong></a>(board: chess.Board, engine: chess.engine.SimpleEngine, color: bool, time_limit: float) -&gt; Tuple[int, int, int]</dt><dd><tt>Get&nbsp;evaluation&nbsp;scores&nbsp;from&nbsp;Stockfish&nbsp;for&nbsp;different&nbsp;depths.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;board&nbsp;(chess.Board):&nbsp;The&nbsp;current&nbsp;state&nbsp;of&nbsp;the&nbsp;chess&nbsp;board.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;The&nbsp;chess&nbsp;engine&nbsp;used&nbsp;for&nbsp;analysis.<br>
+-&nbsp;color&nbsp;(bool):&nbsp;The&nbsp;color&nbsp;of&nbsp;the&nbsp;player&nbsp;making&nbsp;the&nbsp;move.<br>
+-&nbsp;time_limit&nbsp;(float):&nbsp;Time&nbsp;limit&nbsp;for&nbsp;engine&nbsp;analysis&nbsp;in&nbsp;seconds.<br>
+&nbsp;<br>
+Returns:<br>
+tuple:&nbsp;Evaluation&nbsp;scores&nbsp;for&nbsp;depths&nbsp;2,&nbsp;5,&nbsp;and&nbsp;10.</tt></dd></dl>
+ <dl><dt><a name="-plot_ELO_move_quality_3D"><strong>plot_ELO_move_quality_3D</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;3D&nbsp;scatter&nbsp;plot<br>
+showing&nbsp;the&nbsp;relationship&nbsp;between&nbsp;player's&nbsp;ELO<br>
+score&nbsp;and&nbsp;move&nbsp;quality&nbsp;for&nbsp;different&nbsp;depths.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_ELO_position_quality_3D"><strong>plot_ELO_position_quality_3D</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;3D&nbsp;scatter&nbsp;plot&nbsp;showing&nbsp;the<br>
+relationship&nbsp;between&nbsp;player's&nbsp;ELO&nbsp;score&nbsp;and&nbsp;position<br>
+quality&nbsp;for&nbsp;different&nbsp;depths.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_correlation_heatmap"><strong>plot_correlation_heatmap</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;heatmap&nbsp;showing&nbsp;correlations<br>
+between&nbsp;numeric&nbsp;features&nbsp;in&nbsp;the&nbsp;data.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing<br>
+game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_elo_move_quality"><strong>plot_elo_move_quality</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;scatter&nbsp;plots<br>
+showing&nbsp;the&nbsp;relationship&nbsp;between<br>
+player's&nbsp;ELO&nbsp;score<br>
+and&nbsp;move&nbsp;quality<br>
+for&nbsp;different&nbsp;depths.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame<br>
+containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_elo_position_quality"><strong>plot_elo_position_quality</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;scatter&nbsp;plots&nbsp;showing<br>
+the&nbsp;relationship&nbsp;between&nbsp;player's&nbsp;ELO&nbsp;score&nbsp;and<br>
+position&nbsp;quality&nbsp;for&nbsp;different&nbsp;depths.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_legal_illegal"><strong>plot_legal_illegal</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;bar&nbsp;chart<br>
+comparing&nbsp;the&nbsp;counts&nbsp;of&nbsp;legal&nbsp;and<br>
+illegal&nbsp;moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_move_evaluations"><strong>plot_most_common_move_evaluations</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;bar&nbsp;charts&nbsp;showing<br>
+the&nbsp;average&nbsp;evaluation&nbsp;of&nbsp;the&nbsp;most&nbsp;common&nbsp;moves<br>
+for&nbsp;players&nbsp;at&nbsp;different&nbsp;ELO&nbsp;levels.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_move_evaluations_color"><strong>plot_most_common_move_evaluations_color</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;different&nbsp;color<br>
+bar&nbsp;charts&nbsp;showing&nbsp;the&nbsp;average&nbsp;evaluation&nbsp;of&nbsp;the<br>
+most&nbsp;common&nbsp;moves&nbsp;for&nbsp;players&nbsp;at&nbsp;different&nbsp;ELO&nbsp;levels,<br>
+with&nbsp;each&nbsp;ELO&nbsp;level&nbsp;represented&nbsp;by&nbsp;a&nbsp;different&nbsp;color.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_moves"><strong>plot_most_common_moves</strong></a>(temp_df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;bar&nbsp;chart<br>
+showing&nbsp;the&nbsp;most&nbsp;common&nbsp;human<br>
+moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;temp_df&nbsp;(DataFrame):&nbsp;DataFrame<br>
+containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_moves_per_ELO"><strong>plot_most_common_moves_per_ELO</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;bar&nbsp;charts&nbsp;showing<br>
+the&nbsp;most&nbsp;common&nbsp;moves&nbsp;for&nbsp;players&nbsp;at&nbsp;different<br>
+ELO&nbsp;levels.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_moves_per_ELO_colors"><strong>plot_most_common_moves_per_ELO_colors</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;different&nbsp;color<br>
+bar&nbsp;charts&nbsp;showing&nbsp;the&nbsp;most&nbsp;common&nbsp;moves&nbsp;for<br>
+players&nbsp;at&nbsp;different&nbsp;ELO&nbsp;levels,&nbsp;with&nbsp;each&nbsp;ELO<br>
+level&nbsp;represented&nbsp;by&nbsp;a&nbsp;different&nbsp;color.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_moves_per_ELO_relative"><strong>plot_most_common_moves_per_ELO_relative</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;bar&nbsp;charts<br>
+showing&nbsp;the&nbsp;relative&nbsp;frequency&nbsp;of&nbsp;the&nbsp;most<br>
+common&nbsp;moves&nbsp;for&nbsp;players&nbsp;at&nbsp;different&nbsp;ELO&nbsp;levels.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_most_common_moves_per_ELO_relative_colors"><strong>plot_most_common_moves_per_ELO_relative_colors</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;set&nbsp;of&nbsp;bar&nbsp;charts<br>
+showing&nbsp;the&nbsp;relative&nbsp;frequency&nbsp;of&nbsp;the&nbsp;most<br>
+common&nbsp;moves&nbsp;for&nbsp;players&nbsp;at&nbsp;different&nbsp;ELO&nbsp;levels,<br>
+with&nbsp;each&nbsp;ELO&nbsp;level&nbsp;represented&nbsp;by&nbsp;a&nbsp;different&nbsp;color.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_move_quality__random_human_3D"><strong>plot_move_quality__random_human_3D</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;3D&nbsp;scatter&nbsp;plot&nbsp;comparing&nbsp;move<br>
+quality&nbsp;(depth&nbsp;2,&nbsp;5,&nbsp;and&nbsp;10)&nbsp;between&nbsp;player&nbsp;moves&nbsp;and<br>
+random&nbsp;moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_position_quality__random_human_3D"><strong>plot_position_quality__random_human_3D</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Create&nbsp;and&nbsp;showcase&nbsp;a&nbsp;3D&nbsp;scatter&nbsp;plot&nbsp;comparing<br>
+position&nbsp;quality&nbsp;(depth&nbsp;2,&nbsp;5,&nbsp;and&nbsp;10)&nbsp;between&nbsp;player<br>
+moves&nbsp;and&nbsp;random&nbsp;moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-plot_real_fake"><strong>plot_real_fake</strong></a>(df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Generate&nbsp;and&nbsp;display&nbsp;a<br>
+bar&nbsp;chart&nbsp;comparing&nbsp;the&nbsp;counts<br>
+of&nbsp;real&nbsp;and&nbsp;random&nbsp;moves.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-save_data"><strong>save_data</strong></a>(pgn_file_path: str, save_file_path: str, max_num_games: int, stockfish_path: str, shuffle: bool = True, verbose: bool = True, seed: int = 42) -&gt; None</dt><dd><tt>Save&nbsp;data&nbsp;from&nbsp;multiple&nbsp;chess&nbsp;games&nbsp;into&nbsp;a&nbsp;compressed&nbsp;CSV&nbsp;file.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;pgn_file_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;PGN&nbsp;file&nbsp;containing&nbsp;the&nbsp;chess&nbsp;games.<br>
+-&nbsp;save_file_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;save&nbsp;the&nbsp;compressed&nbsp;CSV&nbsp;file.<br>
+-&nbsp;max_num_games&nbsp;(int):&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;games&nbsp;to&nbsp;process.<br>
+-&nbsp;stockfish_path&nbsp;(str):&nbsp;Path&nbsp;to&nbsp;the&nbsp;Stockfish&nbsp;engine&nbsp;executable.<br>
+-&nbsp;shuffle&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;to&nbsp;shuffle&nbsp;the&nbsp;data.<br>
+&nbsp;&nbsp;Defaults&nbsp;to&nbsp;True.<br>
+-&nbsp;verbose&nbsp;(bool,&nbsp;optional):&nbsp;Whether&nbsp;to&nbsp;print&nbsp;progress&nbsp;messages.<br>
+&nbsp;&nbsp;Defaults&nbsp;to&nbsp;True.<br>
+-&nbsp;seed&nbsp;(int,&nbsp;optional):&nbsp;Seed&nbsp;for&nbsp;random&nbsp;number&nbsp;generation.<br>
+&nbsp;&nbsp;Defaults&nbsp;to&nbsp;42.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-save_game_data"><strong>save_game_data</strong></a>(all_games_df: pandas.core.frame.DataFrame, game_number: int, game: chess.pgn.Game, columns: List[str], engine: chess.engine.SimpleEngine, time_limit: float = 0.01) -&gt; pandas.core.frame.DataFrame</dt><dd><tt>Save&nbsp;game&nbsp;data&nbsp;from&nbsp;a&nbsp;chess&nbsp;game&nbsp;into&nbsp;a&nbsp;DataFrame.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;all_games_df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;all&nbsp;games&nbsp;data.<br>
+-&nbsp;game_number&nbsp;(int):&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;game.<br>
+-&nbsp;game&nbsp;(chess.pgn.Game):&nbsp;The&nbsp;chess&nbsp;game&nbsp;object.<br>
+-&nbsp;columns&nbsp;(list):&nbsp;List&nbsp;of&nbsp;column&nbsp;names&nbsp;for&nbsp;the&nbsp;DataFrame.<br>
+-&nbsp;engine&nbsp;(chess.engine.SimpleEngine):&nbsp;The&nbsp;chess&nbsp;engine&nbsp;used&nbsp;for&nbsp;analysis.<br>
+-&nbsp;time_limit&nbsp;(float,&nbsp;optional):&nbsp;Time&nbsp;limit&nbsp;for&nbsp;the&nbsp;engine<br>
+analysis&nbsp;in&nbsp;seconds.&nbsp;Defaults&nbsp;to&nbsp;0.01.<br>
+&nbsp;<br>
+Returns:<br>
+DataFrame:&nbsp;Updated&nbsp;DataFrame&nbsp;containing&nbsp;the&nbsp;saved&nbsp;game&nbsp;data.</tt></dd></dl>
+ <dl><dt><a name="-violin_plot_moves"><strong>violin_plot_moves</strong></a>(copied_df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Generate&nbsp;and&nbsp;display&nbsp;violin&nbsp;plots&nbsp;for&nbsp;move&nbsp;quality.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;copied_df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+ <dl><dt><a name="-violin_plot_positions"><strong>violin_plot_positions</strong></a>(copied_df: pandas.core.frame.DataFrame) -&gt; None</dt><dd><tt>Generate&nbsp;and&nbsp;display&nbsp;violin&nbsp;plots&nbsp;for&nbsp;chess&nbsp;position&nbsp;quality.<br>
+&nbsp;<br>
+Parameters:<br>
+-&nbsp;copied_df&nbsp;(DataFrame):&nbsp;DataFrame&nbsp;containing&nbsp;game&nbsp;data.<br>
+&nbsp;<br>
+Returns:<br>
+None</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Any</strong> = typing.Any<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>List</strong> = typing.List<br>
+<strong>Tuple</strong> = typing.Tuple</td></tr></table>
+</body></html>
