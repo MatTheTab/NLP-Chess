@@ -36,8 +36,14 @@ def save_game_data(all_games_df: pd.DataFrame,
         data[col] = []
     board = game.board()
     j = 0
-    white_elo = int(game.headers['WhiteElo'])
-    black_elo = int(game.headers['BlackElo'])
+    try:
+        white_elo = int(game.headers['WhiteElo'])
+    except ValueError:
+        white_elo = 0
+    try:
+        black_elo = int(game.headers['BlackElo'])
+    except ValueError:
+        black_elo = 0
     for move in game.mainline_moves():
         j += 1
         color = board.turn
