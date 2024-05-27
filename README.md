@@ -5,10 +5,12 @@ As such, it is beneficial to explore and test the abilities of such models in th
 This repository is dedicated to analyzing the current prowess of language models in the domain of game-playing, particularly within the context of chess.
 
 <b> Links to the datasets: </b> 
+- https://database.lichess.org
 - https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing 
 - https://huggingface.co/datasets/mlabonne/chessllm 
 
-<b> Paper for BERT retraining: </b> https://arxiv.org/pdf/2209.11902 <br>
+<b> NLP-Chess Paper: </b> https://github.com/MatTheTab/NLP-Chess/blob/main/results/NLP%20in%20Chess_%20A%20Comprehensive%20Exploration%20of%20the%20Abilities%20of%20Language%20Models%20in%20Game-Playing.pdf <br>
+<b> NLP-Chess Presentation: </b> https://github.com/MatTheTab/NLP-Chess/blob/main/results/NLP_Chess.pdf <br>
 
 ## Repository structure
 Each folder contains a separate README.md file with more information
@@ -33,6 +35,12 @@ NLP-CHESS
 │   │   └── utils.py - utility functions used for data analysis
 │   ├── data_reading.ipynb - showcase of how to read pgn data
 │   └── EDA.ipynb - exploration of the main dataset
+├── documentation
+|    └── chessplaying_utils.html - documentation for the chessplaying_utils.py file
+|    └── utils.html - documentation for the utils.py file
+├── results
+|    └── NLP in Chess_ A Comprehensive Exploration of the Abilities of Language Models in Game-Playing.pdf - paper summarizing the work and its results
+|    └── NLP_Chess.pdf - presentation summarizing the work and its results
 ├── .flake8 - flake8 config file
 └── mypy.ini - mypy config file
 ```
