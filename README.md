@@ -9,8 +9,8 @@ This repository is dedicated to analyzing the current prowess of language models
 - https://drive.google.com/drive/folders/1XzzcIMATMWeCUdlQG9BLtsVae5fjphEo?usp=sharing 
 - https://huggingface.co/datasets/mlabonne/chessllm 
 
-<b> NLP-Chess Paper: </b> https://github.com/MatTheTab/NLP-Chess/blob/main/results/NLP%20in%20Chess_%20A%20Comprehensive%20Exploration%20of%20the%20Abilities%20of%20Language%20Models%20in%20Game-Playing.pdf <br>
-<b> NLP-Chess Presentation: </b> https://github.com/MatTheTab/NLP-Chess/blob/main/results/NLP_Chess.pdf <br>
+<b> NLP-Chess Paper: </b> [NLP in Chess_ A Comprehensive Exploration of the Abilities of Language Models in Game-Playing.pdf](https://github.com/MatTheTab/NLP-Chess/blob/main/results/NLP%20in%20Chess_%20A%20Comprehensive%20Exploration%20of%20the%20Abilities%20of%20Language%20Models%20in%20Game-Playing.pdf) <br>
+<b> NLP-Chess Presentation: </b> [NLP_Chess.pdf](https://github.com/MatTheTab/NLP-Chess/blob/main/results/NLP_Chess.pdf) <br>
 
 ## Repository structure
 Each folder contains a separate README.md file with more information
