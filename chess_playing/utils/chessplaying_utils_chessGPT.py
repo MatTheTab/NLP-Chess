@@ -382,8 +382,9 @@ def eval_single_position_bot(board: chess.Board,
                 print(
                     f" - Score before move: {move_stats['prev_score']}\n"
                     f" - Score after move: {evaluation_score}\n"
-                    f" - Is best move: {nextmove==move_stats['best_move']}\n"
-                    f" - Is worst move: {nextmove==move_stats['worst_move']}\n"
+                    f" - Is best move: {nextmove == move_stats['best_move']}\n"
+                    f" - Is worst move: "
+                    f"{nextmove == move_stats['worst_move']}\n"
                     f" - Is above average move: "
                     f"{evaluation_diff > move_stats['mean_score']}"
                 )
@@ -455,10 +456,11 @@ def eval_single_position_random(board: chess.Board,
             print(
                 f" - Score before move: {move_stats['prev_score']}\n"
                 f" - Score after move: {evaluation_score}\n"
-                f" - Is best move: {next_move==move_stats['best_move']}\n"
-                f" - Is worst move: {next_move==move_stats['worst_move']}\n"
+                f" - Is best move: {next_move == move_stats['best_move']}\n"
+                f" - Is worst move: "
+                f"{next_move == move_stats['worst_move']}\n"
                 f" - Is above average move:"
-                f" {evaluation_diff>move_stats['mean_score']}"
+                f" {evaluation_diff > move_stats['mean_score']}"
             )
 
         scores.append(evaluation_diff)
